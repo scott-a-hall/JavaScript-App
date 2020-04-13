@@ -24,4 +24,9 @@ var pokedexRepository = [
     height: 4\' 03",
     types: ['poison', 'ground'],
   },
+  {
+    name: 'Butterfree',
+    height: 3\' 07",
+    types: ['bug', 'flying'],
+  },
 ]
