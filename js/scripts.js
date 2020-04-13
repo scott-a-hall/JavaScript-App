@@ -14,4 +14,9 @@ var pokedexRepository = [
     height: 0\' 08",
     types: ['ground'],
   },
+  {
+    name: 'Marowak',
+    height: 3\' 03",
+    types: ['ground'],
+  },
 ]
