@@ -29,4 +29,9 @@ var pokedexRepository = [
     height: 3\' 07",
     types: ['bug', 'flying'],
   },
+  {
+    name: 'Pidgeotto',
+    height: 3\' 07",
+    types: ['normal', 'flying'],
+  },
 ]
