@@ -19,4 +19,9 @@ var pokedexRepository = [
     height: 3\' 03",
     types: ['ground'],
   },
+  {
+    name: 'Nidoqueen',
+    height: 4\' 03",
+    types: ['poison', 'ground'],
+  },
 ]
