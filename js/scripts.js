@@ -1,3 +1,5 @@
+alert('Hello World!');
+
 var pokedexRepository = [
   {
     name: 'Charmander',
