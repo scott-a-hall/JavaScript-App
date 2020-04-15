@@ -37,3 +37,13 @@ var pokedexRepository = [
     types: ['normal', 'flying'],
   },
 ]
+
+for (var i = 0; i < pokedexRepository.length; i++) {
+  document.write(pokedexRepository[i].name, ', (height: ');
+  document.write(pokedexRepository[i].height, ')');
+  if (pokedexRepository[i].height >= 6.3) {
+   document.write(' - <strong>Wow, that\'s big!</strong> <p></p>')
+ }else{
+   document.write('<p></p>')
+ }
+}
