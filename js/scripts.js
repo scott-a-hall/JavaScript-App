@@ -38,7 +38,17 @@ var pokedexRepository = [
   },
 ]
 
-for (var i = 0; i < pokedexRepository.length; i++) {
+Object.keys(pokedexRepository).forEach(function(characterList){
+  document.write(pokedexRepository[characterList].name, ', (height: ');
+  document.write(pokedexRepository[characterList].height, ')');
+  if(pokedexRepository[characterList].height >= 5) {
+    document.write(' - <strong>Wow, that\'s big!</strong> <p><p/>')
+  }else{
+    document.write('<p></p>')
+  }
+});
+
+/*for (var i = 0; i < pokedexRepository.length; i++) {
   document.write(pokedexRepository[i].name, ', (height: ');
   document.write(pokedexRepository[i].height, ')');
   if (pokedexRepository[i].height >= 6.3) {
@@ -46,4 +56,4 @@ for (var i = 0; i < pokedexRepository.length; i++) {
  }else{
    document.write('<p></p>')
  }
-}
+}*/
