@@ -1,6 +1,5 @@
-alert('Hello World!');
-
-var pokedexRepository = [
+var pokemonRepository = (function() {
+  var pokemonList = [
   {
     name: 'Charmander',
     height: 2.0,
@@ -36,24 +35,27 @@ var pokedexRepository = [
     height: 3.07,
     types: ['normal', 'flying'],
   },
-]
+ ]
 
-Object.keys(pokedexRepository).forEach(function(characterList){
-  document.write(pokedexRepository[characterList].name, ', (height: ');
-  document.write(pokedexRepository[characterList].height, ')');
-  if(pokedexRepository[characterList].height >= 5) {
-    document.write(' - <strong>Wow, that\'s big!</strong> <p><p/>')
+  function getAll() {
+    return pokemonList;
+  }
+
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
+
+  return {
+    add: add,
+    getAll: getAll
+  }
+})();
+
+pokemonRepository.getAll().forEach(function(pokemon) {
+  document.write(pokemon.name + ', height: ' + pokemon.height)
+  if(pokemon.height >= 5) {
+    document.write(' - <strong>Wow, that\'s big!</strong> <p></p>')
   }else{
     document.write('<p></p>')
   }
-});
-
-/*for (var i = 0; i < pokedexRepository.length; i++) {
-  document.write(pokedexRepository[i].name, ', (height: ');
-  document.write(pokedexRepository[i].height, ')');
-  if (pokedexRepository[i].height >= 6.3) {
-   document.write(' - <strong>Wow, that\'s big!</strong> <p></p>')
- }else{
-   document.write('<p></p>')
- }
-}*/
+})
