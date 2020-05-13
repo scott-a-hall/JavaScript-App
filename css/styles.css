@@ -29,15 +29,3 @@ header {
 li {
   list-style-type: none;
 }
-body{
-  font-family: "Flexo-Regular",arial,sans-serif;
-}
-
-header {
-  margin: 10px;
-  padding-bottom: 20px;
-}
-
-.character-list {
-  margin: 10px;
-}
