@@ -1,6 +1,7 @@
 var pokemonRepository = (function () {
   var pokemonList = [];
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
+  var $modalContainer = document.querySelector('#modal-container');
 
 function getAll() {
   return pokemonList;
@@ -52,17 +53,76 @@ function loadDetails(item) {
     //add details to item
     item.imageUrl = details.sprites.front_default;
     item.height = details.height;
-    item.types = details.types;
-  }).catch(function (e) {
+    item.types = [];
+    for (var i = 0; i < details.types.length; i++) {
+      item.types.push(' ' + details.types[i].type.name);
+    }
+    }).catch(function (e) {
     console.error(e);
-  });
-}
+  })
+};
 
 function showDetails(item) {
   loadDetails(item).then(function () {
-    console.log(item);
+    showModal(item);
   });
-}
+};
+
+// Create modal
+function showModal(item) {
+  $modalContainer.innerHTML = '';
+  var modal = document.createElement('div');
+  modal.classList.add('modal');
+
+  // Add modal content
+  var closeButtonElement = document.createElement('button');
+  closeButtonElement.classList.add('modal-close');
+  closeButtonElement.innerText = 'Close';
+  closeButtonElement.addEventListener('click', hideModal);
+
+  // Add character name to modal
+  var nameElement = document.createElement('h1');
+  nameElement.innerText = item.name;
+
+  // Add character height
+  var heightElement = document.createElement('p');
+  heightElement.innerText = 'Height: ' + item.height + ' m';
+
+  // Add character type(s)
+  var typeElement = document.createElement('p');
+  typeElement.innerText = 'Type: ' + item.types;
+
+  // Add character image
+  var imageElement = document.createElement('img');
+  imageElement.classList.add('modal-image');
+  imageElement.setAttribute('src', item.imageUrl);
+
+  modal.appendChild(closeButtonElement);
+  modal.appendChild(nameElement);
+  modal.appendChild(heightElement);
+  modal.appendChild(typeElement);
+  modal.appendChild(imageElement);
+  $modalContainer.appendChild(modal);
+
+  $modalContainer.classList.add('is-visible');
+};
+
+function hideModal() {
+  $modalContainer.classList.remove('is-visible');
+};
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && $modalContainer.classList.contains('is-visible')) {
+    hideModal();
+  }
+});
+
+$modalContainer.addEventListener('click', (e) => {
+  var target = e.target;
+  if (target === $modalContainer) {
+    hideModal();
+  }
+});
 
 return {
   add: add,
