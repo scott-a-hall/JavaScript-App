@@ -20,7 +20,6 @@ header {
 .pokemon-list {
   padding: 15px;
   border: 2px black solid;
-  display: inline-block center;
   max-width: 400px;
 }
 
