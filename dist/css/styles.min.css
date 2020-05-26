@@ -16,7 +16,6 @@ header {
 .pokemon-list {
   padding: 15px;
   border: 2px #000 solid;
-  display: inline-block center;
   max-width: 400px;
 }
 .button {
